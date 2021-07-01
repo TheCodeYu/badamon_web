@@ -12,8 +12,10 @@ import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 main() {
+  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(BlocWrapper(MyApp()));
 }

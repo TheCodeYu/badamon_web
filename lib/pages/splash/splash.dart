@@ -29,8 +29,10 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
       progress = data;
       setState(() {});
       if (progress == 100) {
-        BlocProvider.of<GlobalBloc>(context).add(EventIntoHome());
-        Navigator.of(context).pushReplacementNamed(HomePage.defaultRoute);
+        Future.delayed(Duration(milliseconds: 2000)).then((e) {
+          BlocProvider.of<GlobalBloc>(context).add(EventIntoHome());
+          Navigator.of(context).pushReplacementNamed(HomePage.defaultRoute);
+        });
       }
     }, name: this.runtimeType.toString());
     _controller =

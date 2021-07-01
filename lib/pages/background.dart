@@ -47,9 +47,9 @@ class _BackgroundState extends State<Background>
       height: MediaQuery.of(context).size.height - dh(50),
       child: DragView(
         data: imageList,
-        space: dw(5),
-        itemWidth: dw(35),
-        margin: EdgeInsets.all(dw(20)),
+        space: 5,
+        itemWidth: 55,
+        margin: EdgeInsets.all(20),
         padding: EdgeInsets.all(0),
         itemBuilder: (BuildContext context, int index) {
           IconMenuBean bean = imageList[index];

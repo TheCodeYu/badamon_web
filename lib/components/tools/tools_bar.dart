@@ -4,6 +4,7 @@ import 'package:badamon_web/core/all_based.dart';
 import 'package:badamon_web/core/icon_menu/icon_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ToolsBar extends StatefulWidget {
   const ToolsBar({Key? key}) : super(key: key);
@@ -63,7 +64,7 @@ class _ToolsBarState extends State<ToolsBar> with AllBased {
         child: Row(
           children: [
             Expanded(
-                flex: 6,
+                flex: 5,
                 child: Container(
                   child: Swiper(
                       index: 0,
@@ -75,7 +76,7 @@ class _ToolsBarState extends State<ToolsBar> with AllBased {
                       scrollDirection: Axis.horizontal,
                       containerWidth: dw(25),
                       itemWidth: dw(25),
-                      viewportFraction: 1 / 8,
+                      viewportFraction: 1 / (4 * ScreenUtil().scaleWidth),
                       scale: 0.1,
                       fade: 0.1),
                 )),

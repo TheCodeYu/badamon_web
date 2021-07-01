@@ -56,64 +56,63 @@ class _IconMenuState extends State<IconMenu> with AllBased {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          rx.push(IconMenu.rx_event_IconMenu[0],
-              data: {'focus': false, 'name': widget.iconMenuBean.name});
-          setState(() {
-            hasFocus = true;
-          });
-        },
-        onDoubleTap: () {
-          rx.push(IconMenu.rx_event_IconMenu[0],
-              data: {'focus': false, 'name': widget.iconMenuBean.name});
-        },
-        onSecondaryTapDown: (details) {
-          globalPosition = details.globalPosition;
-        },
-        onSecondaryTap: () {
-          rx.push(IconMenu.rx_event_IconMenu[0],
-              data: {'focus': false, 'name': widget.iconMenuBean.name});
-          setState(() {
-            hasFocus = true;
-          });
-          showMenu(
-              context: context,
-              position: RelativeRect.fromLTRB(
-                  globalPosition.dx,
-                  globalPosition.dy,
-                  globalPosition.dx + 50,
-                  globalPosition.dy + 100),
-              items: <PopupMenuEntry>[
-                PopupMenuItem(
-                  height: kMinInteractiveDimension,
-                  child: Text('111111'),
-                ),
-              ]);
-        },
-        child: Container(
-          decoration: BoxDecoration(
-              color: hasFocus
-                  ? (Colors.blue.withOpacity(0.2))
-                  : Colors.transparent),
-          child: (widget.iconMenuBean.flag) == 1
-              ? Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: dh(5)),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                              'assets/os/images/${widget.iconMenuBean.disPlayName}.png'),
-                          fit: BoxFit.fill,
+      onTap: () {
+        rx.push(IconMenu.rx_event_IconMenu[0],
+            data: {'focus': false, 'name': widget.iconMenuBean.name});
+        setState(() {
+          hasFocus = true;
+        });
+      },
+      onDoubleTap: () {
+        rx.push(IconMenu.rx_event_IconMenu[0],
+            data: {'focus': false, 'name': widget.iconMenuBean.name});
+      },
+      onSecondaryTapDown: (details) {
+        globalPosition = details.globalPosition;
+      },
+      onSecondaryTap: () {
+        rx.push(IconMenu.rx_event_IconMenu[0],
+            data: {'focus': false, 'name': widget.iconMenuBean.name});
+        setState(() {
+          hasFocus = true;
+        });
+        showMenu(
+            context: context,
+            position: RelativeRect.fromLTRB(
+                globalPosition.dx,
+                globalPosition.dy,
+                globalPosition.dx + 50,
+                globalPosition.dy + 100),
+            items: <PopupMenuEntry>[
+              PopupMenuItem(
+                height: kMinInteractiveDimension,
+                child: Text('111111'),
+              ),
+            ]);
+      },
+      child: Tooltip(
+          message: widget.iconMenuBean.disPlayName,
+          child: Container(
+            decoration: BoxDecoration(
+                color: hasFocus
+                    ? (Colors.blue.withOpacity(0.2))
+                    : Colors.transparent),
+            child: (widget.iconMenuBean.flag) == 1
+                ? Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(bottom: 5),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                                'assets/os/images/${widget.iconMenuBean.disPlayName}.png'),
+                            fit: BoxFit.fill,
+                          ),
                         ),
+                        width: 20,
+                        height: 20,
                       ),
-                      width: dw(20),
-                      height: dw(20),
-                    ),
-                    MouseRegion(
-                      onEnter: (e) {},
-                      onExit: (e) {},
-                      child: Text(
+                      Text(
                         widget.iconMenuBean.disPlayName,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -122,21 +121,21 @@ class _IconMenuState extends State<IconMenu> with AllBased {
                                 .fontFamily,
                             fontSize: sp(6)),
                       ),
+                    ],
+                  )
+                : Container(
+                    margin: EdgeInsets.zero,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                            'assets/os/images/${widget.iconMenuBean.disPlayName}.png'),
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ],
-                )
-              : Container(
-                  margin: EdgeInsets.zero,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                          'assets/os/images/${widget.iconMenuBean.disPlayName}.png'),
-                      fit: BoxFit.fill,
-                    ),
+                    width: 20,
+                    height: 20,
                   ),
-                  width: dw(20),
-                  height: dw(20),
-                ),
-        ));
+          )),
+    );
   }
 }

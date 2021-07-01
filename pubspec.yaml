@@ -48,6 +48,7 @@ dependencies:
   json_annotation: ^4.0.1 #json转models
   #win32: ^2.2.4  #加入对应的dll
   flutter_card_swipper: ^0.4.0
+  url_strategy: ^0.2.0 #去掉#
 dev_dependencies:
   flutter_test:
     sdk: flutter
